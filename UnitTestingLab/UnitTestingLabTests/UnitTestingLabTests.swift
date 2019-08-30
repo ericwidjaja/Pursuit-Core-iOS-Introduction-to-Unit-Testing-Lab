@@ -14,20 +14,45 @@ class UnitTestingLabTests: XCTestCase {
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
-
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    
+    //MARK - create func to obtain data from respective json file depending on name parameter
+    private func getDataFromJSON(name: String) -> Data {
+        guard let pathToData = Bundle.main.path(forResource: name, ofType: "json") else {
+            fatalError("couldn't find JSON file called \(name).json")}
+        
+        let url = URL(fileURLWithPath: pathToData)
+        do {
+            let data = try Data(contentsOf: url)
+            return data
+        } catch let jsonError {
+            fatalError("error")
+        }
     }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    
+    //Task 1 : Make sure data loaded and model is able to decode
+    func testJokeDidLoad() {
+        let data = getDataFromJSON(name: "joke")
+        let newJoke = JokeArr.getJokes(from: data)
+        XCTAssertTrue(newJoke.self != nil, "There was no object")
+    }
+    
+    //To test if they are 10 jokes inside the array
+    func testAllJokesCount() {
+        let data = getDataFromJSON(name: "joke")
+        let newJoke = JokeArr.getJokes(from: data)
+        XCTAssertTrue(newJoke.count == 10 , "The array only has \(newJoke.count)")
+    }
+    //To test [JokeArr]'s properties have Strings
+    func testJokesString() {
+        let data = getDataFromJSON(name: "joke")
+        let newJoke = JokeArr.getJokes(from: data)
+        for i in 0..<newJoke.count {
+            XCTAssertTrue(newJoke[i].punchline == newJoke[i].punchline.description, "\(newJoke[i].punchline) is NOT a String")
+            XCTAssertTrue(newJoke[i].setup == newJoke[i].setup.description, "\(newJoke[i].setup) is NOT a String")
         }
     }
 

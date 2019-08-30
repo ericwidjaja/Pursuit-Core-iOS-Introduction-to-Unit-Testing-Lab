@@ -84,10 +84,10 @@
 			isa = PBXGroup;
 			children = (
 				DF16077923187147005ED710 /* AppDelegate.swift */,
-				DF16079C23187215005ED710 /* joke.json */,
-				DF16079F23187258005ED710 /* Joke.swift */,
-				DF16077B23187147005ED710 /* ViewController.swift */,
-				DF16077D23187147005ED710 /* Main.storyboard */,
+				DFD1433E2318C37400F5D81A /* JSONs */,
+				DFD1433D2318C36000F5D81A /* Models */,
+				DFD1433F2318C3B400F5D81A /* MainViewController */,
+				DFD143402318C3DB00F5D81A /* View */,
 				DF16078023187148005ED710 /* Assets.xcassets */,
 				DF16078223187148005ED710 /* LaunchScreen.storyboard */,
 				DF16078523187148005ED710 /* Info.plist */,
@@ -102,6 +102,38 @@
 				DF16079023187148005ED710 /* Info.plist */,
 			);
 			path = UnitTestingLabTests;
+			sourceTree = "<group>";
+		};
+		DFD1433D2318C36000F5D81A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DF16079F23187258005ED710 /* Joke.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		DFD1433E2318C37400F5D81A /* JSONs */ = {
+			isa = PBXGroup;
+			children = (
+				DF16079C23187215005ED710 /* joke.json */,
+			);
+			path = JSONs;
+			sourceTree = "<group>";
+		};
+		DFD1433F2318C3B400F5D81A /* MainViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DF16077B23187147005ED710 /* ViewController.swift */,
+			);
+			path = MainViewController;
+			sourceTree = "<group>";
+		};
+		DFD143402318C3DB00F5D81A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DF16077D23187147005ED710 /* Main.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
